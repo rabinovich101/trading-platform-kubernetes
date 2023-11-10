@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: server
+          ports:
+            - containerPort: 3003
+          env:
+            - name: MYSQL_HOST
+              value: mysql-cluster-ip-service
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_DATABASE
+              value: trading_platform
+            - name: MYSQL_PASSWORD
+              value: Xx123456
+            - name: WALLET_PHRASE
+              value: Gascbwd03A&*7823*&&!(*()*)(&*)(jwsjnkhdekdhejhd
+            - name: MEMONIC
+              value: stumble castle below paddle worth borrow inhale kick option desert sample decorate
+            - name: BLOCKCHAIR_KEY
+              value: A___FsYEEz0ZDQ64boro8fFUYllGitBt
+            - name: PORT
+              value: "3003"
+            - name: LOCALHOST_3010
+              value: http://localhost:3010
+            - name: LOCALHOST_80
+              value: http://localhost:80
+            - name: APIKEY
+              value: 8P26F3J5A74DDJ24
+            - name: SECRET_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-token
+                  key: password

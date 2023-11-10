@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: orderbook-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: orderbook
+  ports:
+    - port: 3010
+      targetPort: 3010

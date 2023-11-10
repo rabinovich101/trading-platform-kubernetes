@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderbook-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: orderbook
+  template:
+    metadata:
+      labels:
+        component: orderbook
+    spec:
+      containers:
+        - name: orderbook
+          image: orderbook
+          ports:
+            - containerPort: 3010
