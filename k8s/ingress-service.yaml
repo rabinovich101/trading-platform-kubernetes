@@ -35,3 +35,23 @@ spec:
                 name: server-cluster-ip-service
                 port:
                   number: 3003
+          - path: /orderbook/?(.*)
+            # UPDATE PATH
+            pathType: ImplementationSpecific
+            # ADD PATHTYPE
+            backend:
+              service:
+                # UPDATE SERVICE FIELDS
+                name: orderbook-cluster-ip-service
+                port:
+                  number: 3010
+          - path: /jsonserver/?(.*)
+            # UPDATE PATH
+            pathType: ImplementationSpecific
+            # ADD PATHTYPE
+            backend:
+              service:
+                # UPDATE SERVICE FIELDS
+                name: jsonserver-cluster-ip-service
+                port:
+                  number: 3004

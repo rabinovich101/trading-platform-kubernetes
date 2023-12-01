@@ -12,8 +12,20 @@ spec:
       labels:
         component: jsonserver
     spec:
+      volumes:
+        - name: jsonserver-storage
+          persistentVolumeClaim:
+            claimName: jsonserver-persistent-volume-claim
       containers:
         - name: jsonserver
-          image: jsonserver
+          image: rabinovich101/jsonserver
+          imagePullPolicy: Always
           ports:
             - containerPort: 3004
+          volumeMounts:
+            - name: jsonserver-storage
+              mountPath: /data
+      volumes:
+        - name: jsonserver-storage
+          configMap:
+            name: jsonserver-storage-config

@@ -24,3 +24,12 @@ spec:
           volumeMounts:
             - name: mysql-storage
               mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_HOST
+              value: mysql-cluster-ip-service
+            - name: MYSQL_ROOT_USER
+              value: root
+            - name: MYSQL_DATABASE
+              value: trading_platform
+            - name: MYSQL_ROOT_PASSWORD
+              value: Xx123456

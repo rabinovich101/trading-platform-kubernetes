@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: server
+          image: rabinovich101/server
           ports:
             - containerPort: 3003
           env:
@@ -41,7 +41,4 @@ spec:
             - name: APIKEY
               value: 8P26F3J5A74DDJ24
             - name: SECRET_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: secret-token
-                  key: password
+              value: DFFDJCKDNKJD54545SD#
