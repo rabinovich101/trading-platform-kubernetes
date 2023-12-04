@@ -30,4 +30,6 @@ jobs:
         run: |
           gcloud components update kubectl
           gcloud config set project ${{ secrets.GOOGLE_PROJECT }}
+          gcloud config set compute/zone us-central1-c
+          gcloud container clusters get-credentials trading-k8s
         shell: bash
