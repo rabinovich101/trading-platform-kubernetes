@@ -29,4 +29,5 @@ jobs:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
           gcloud components update kubectl
+          gcloud config set project ${{ secrets.GOOGLE_PROJECT }}
         shell: bash
