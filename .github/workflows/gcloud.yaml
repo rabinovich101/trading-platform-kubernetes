@@ -28,8 +28,9 @@ jobs:
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
-          gcloud components update kubectl
+          gcloud components update kubectl 
           gcloud config set project ${{ secrets.GOOGLE_PROJECT }}
           gcloud config set compute/zone us-central1-c
           gcloud container clusters get-credentials trading-k8s
+          kubectl apply -f k8s
         shell: bash
