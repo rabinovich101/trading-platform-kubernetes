@@ -28,6 +28,7 @@ jobs:
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
+          clear
           gcloud components update kubectl 
           gcloud config set project ${{ secrets.GOOGLE_PROJECT }}
           gcloud config set compute/zone us-central1-c
